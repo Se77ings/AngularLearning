@@ -1,7 +1,7 @@
 <section>
     <h2 onclick="exibeContent(this)" id="1" style="width: 900px;">1 -- Data binding:<span class="shade">(Clique para
             alternar o conteudo entre exibido e escondido)</span></h2>
-    <div style="display: none;" id="lesson1">
+    <div style="display: none;" id="lesson1" class="lesson">
         <article>
             <h3>Interpolação:</h3>
             <p>String renderizada com interpolação -> {{url}}</p>
@@ -20,7 +20,7 @@
 </section>
 <section>
     <h2 onclick="exibeContent(this)" id="2">2 -- Css && Style Binding</h2>
-    <div style="display: none;" id="lesson2">
+    <div style="display: none;" id="lesson2" class="lesson">
         <article>
             <div>Selecione uma classe:
                 <select name="" #classe (change)="0">
@@ -43,15 +43,77 @@
     </div>
 </section>
 <section>
-    <h2>3 -- Event Binding</h2>
-    <div>
+    <h2 onclick="exibeContent(this)" id="3">3 -- Event Binding</h2>
+    <div style="display: none;" id="lesson3" class="lesson">
         <article>
         <button (click)="botaoClicado()" class="btn btn-primary">Me Clique!</button><br><br>
         
         <input type="text" 
         (keyup)="onKeyUp($event)"
-        (keyup.enter)="salvarValor($event.target.value)">
+        (keyup.enter)="salvarValor($event)">
         <p> Valor Atual -> {{ valorAtual }}</p>
         </article>
+        <article #classeChanger (change)="0">
+            <p id="valorSalvo" [style.display]="valorSalvo != 0 ? 'block' : 'none'"> Valor salvo -> {{ valorSalvo }}</p>
+        </article>
+
+        <br>
+
+        <span (mouseover) = "onMouseOverOut()" (mouseout) = "onMouseOverOut()" [class.highlight] = "isMouseOver">Passe o mouse aqui</span>
+    </div>
+</section>
+<section>
+    <h2 onclick="exibeContent(this)" id="4">4 -- Two Way data-binding</h2>
+    <div style="display: none;" id="lesson4" class="lesson">
+
+        <article>
+            <!-- Esse aqui é para atualizar o componente através do template -->
+            <input type="text"
+            [value] = "nome"
+            (input)="nome = $any($event.target).value"
+            >
+            <!-- Esse é uma variação, funciona basicamente da mesma forma -->
+            <input type="text"
+            [ngModel] = "nome"
+            (ngModelChange)="nome = $any($event.target).value"
+            >
+            <!-- Aqui vamos usar o Two-Way DataBinding -->
+            <!-- Ou seja, vamos usar o bind de propriedade, e de evento, juntos. -->
+            <input type="text"
+            [(ngModel)]="nome">
+            <!-- Para lembrar a ordem, existe uma sintaxe: "Banana in a Box [()]" -->
+            
+            <!-- Forma canonica: (ou a conversão que o angular faz por tras dos panos) -->
+            <input type="text"
+            bindon-ngModel="nome">
+            
+            <p>Você digitou -> {{nome}}</p>
+            <br>
+            <p>Exemplo com objeto:</p>
+            <input type="text" [(ngModel)]="pessoa.nome">
+            <input type="text" [(ngModel)]="pessoa.idade">
+            <p>Meu nome é {{pessoa.nome}} e tenho {{pessoa.idade}} anos de idade</p>
+        </article>
+    </div>
+</section>
+
+<section >
+    <h2 onclick="exibeContent(this)" id="5">5 -- Input / Output Properties</h2>
+    <div id="lesson5" class="lesson" style="display: none;">
+        <article>
+            <!-- Reutilizando abaixo outro componente -->
+            <app-curso [nome]="nomeDoCurso" ></app-curso>
+            <contador [valor]="valorInicial"
+            (mudouValor)="onMudouValor($event)"></contador>
+        </article>
+    </div>
+</section>
+<section>
+    <h2>6 -- Ciclo de Vida de um Component</h2>
+    <div id="lesson6" class="lesson">
+        <article>
+            <app-ciclo [valor]="valorInicial" *ngIf="!deletarCiclo"></app-ciclo>
+            <button (click)="destruirCiclo()">Destruir Componente</button>
+        </article> 
     </div>
 </section>
