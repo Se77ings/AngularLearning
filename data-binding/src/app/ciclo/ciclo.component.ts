@@ -49,12 +49,9 @@ export class CicloComponent implements OnInit{
 
   @Input('valor') valorInicial:number = 10;
 
-  deletarCiclo:boolean = false;
 
   mudarValor(){
     this.valorInicial++;
   }
 
-  destruirCiclo(){
-    this.deletarCiclo = true;}
 }

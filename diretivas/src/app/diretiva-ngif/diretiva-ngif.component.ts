@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
     imports: [CommonModule],
     templateUrl: './diretiva-ngif.component.html',
     styleUrl: './diretiva-ngif.component.css'
+    
 })
 export class DiretivaNgifComponent {
     cursos: string[] = ['opa'];

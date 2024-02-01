@@ -1,0 +1,13 @@
+<div class="border rounded-3 p-5" style="width: 1200px; margin: auto;">
+    <p>Usando a property binding</p>
+    <h1 (click)="onClick()" 
+    class="bi" 
+    [class.bi-star]="!meuFavorito" 
+    [class.bi-star-fill]="meuFavorito"></h1><br><br>
+
+    <p>Usando a diretiva ngClass</p>
+    <h1 class="bi" [ngClass]="{
+        'bi-star': !meuFavorito, 
+        'bi-star-fill': meuFavorito
+        }" (click)="onClick()"></h1>
+</div>

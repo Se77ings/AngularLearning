@@ -1,15 +1,29 @@
-<h5>*ngIf</h5>
-<h4>Opção 1:</h4>
-<p>cursos: {{cursos.length}}</p>
-<div *ngIf="cursos.length > 0" ><p>Lista abaixo:</p></div>
-<div *ngIf="cursos.length == 0" ><p>Não existem cursos a serem listados</p></div>
-<br>
-<h4>Opção 2:</h4>
-<div *ngIf="mostrarCursos" ><p>Lista abaixo:</p></div>
-<div *ngIf="!mostrarCursos" ><p>Não existem cursos a serem listados</p></div>
-<button (click)="mostraOcultaCursos()">Clique para mostrar/exibir cursos</button>
-<p>como no exemplo acima o elemento é destruido e criado novamente, pode-se perder desempenho. uma alternativa é usar o display:hidden (abaixo)</p>
-<br>
-<h4>Opção 3:</h4>
-<div [hidden]="!mostrarCursos" ><p>Lista abaixo:</p></div>
-<div [hidden]="mostrarCursos" ><p>Não existem cursos a serem listados</p></div>
+<div class="border rounded-3 p-5" style="width: 1200px; margin: auto;">
+    <h4>Opção 1:</h4>
+    <p>cursos: {{cursos.length}}</p>
+    <div *ngIf="cursos.length > 0">
+        <p>Lista abaixo:</p>
+    </div>
+    <div *ngIf="cursos.length == 0">
+        <p>Não existem cursos a serem listados</p>
+    </div>
+    <br>
+    <h4>Opção 2:</h4>
+    <div *ngIf="mostrarCursos">
+        <p>Lista abaixo:</p>
+    </div>
+    <div *ngIf="!mostrarCursos">
+        <p>Não existem cursos a serem listados</p>
+    </div>
+    <button (click)="mostraOcultaCursos()" class="button btn-primary">Clique para mostrar/exibir cursos</button>
+    <p>como no exemplo acima o elemento é destruido e criado novamente, pode-se perder desempenho. uma alternativa é
+        usar o display:hidden (abaixo)</p>
+    <br>
+    <h4>Opção 3:</h4>
+    <div [hidden]="!mostrarCursos">
+        <p>Lista abaixo:</p>
+    </div>
+    <div [hidden]="mostrarCursos">
+        <p>Não existem cursos a serem listados</p>
+    </div>
+</div>

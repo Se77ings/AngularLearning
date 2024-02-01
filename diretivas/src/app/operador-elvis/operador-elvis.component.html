@@ -1,0 +1,13 @@
+<div class="border rounded-3 p-5" style="width: 1200px; margin: auto;">
+    <p>Descrição: {{tarefa.desc}}</p>
+    <!-- <p>Responsável: {{tarefa.responsavel.nome}}</p> -->
+    <!-- Utilizando operador ternário: -->
+    <p>Responsável: {{tarefa.responsavel != null ? tarefa.responsavel.nome : 'nenhum'}}</p>
+    
+    <!-- Utilizando operador Elvis: -->
+    <p>Responsável: {{tarefa.responsavel?.nome}}</p>
+    
+    <!-- Elvis com mais de um objeto aninhado: -->
+    <p>Responsável: {{tarefa.usuario?.nome?.name}}</p>
+    
+</div>
